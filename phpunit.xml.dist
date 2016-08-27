@@ -1,9 +1,17 @@
 <phpunit backupGlobals="false" bootstrap="./vendor/autoload.php" colors="true">
     <testsuites>
-        <testsuite>
-            <directory>./tests</directory>
+        <testsuite name="Integration tests">
+            <directory>vendor/http-interop/http-factory-tests/src</directory>
         </testsuite>
     </testsuites>
+    <php>
+        <const name="REQUEST_FACTORY" value="Http\Factory\Guzzle\RequestFactory"/>
+        <const name="RESPONSE_FACTORY" value="Http\Factory\Guzzle\ResponseFactory"/>
+        <const name="SERVER_REQUEST_FACTORY" value="Http\Factory\Guzzle\ServerRequestFactory"/>
+        <const name="STREAM_FACTORY" value="Http\Factory\Guzzle\StreamFactory"/>
+        <const name="UPLOADED_FILE_FACTORY" value="Http\Factory\Guzzle\UploadedFileFactory"/>
+        <const name="URI_FACTORY" value="Http\Factory\Guzzle\UriFactory"/>
+    </php>
     <filter>
         <whitelist>
             <directory>./src/</directory>
