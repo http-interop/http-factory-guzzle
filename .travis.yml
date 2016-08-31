@@ -1,0 +1,38 @@
+language: php
+
+php:
+  - 5.6
+  - 7.0
+  - 7.1
+  - hhvm
+
+sudo: false
+
+cache:
+  directories:
+    - $HOME/.composer/cache
+    - vendor
+
+git:
+  depth: 1
+
+env:
+  global:
+    - PHPUNIT_VERSION="^5.4"
+
+matrix:
+  include:
+    - php: 5.6
+      env:
+        - COMPOSER_FLAGS="--prefer-stable --prefer-lowest"
+
+before_script:
+  - travis_retry composer update ${COMPOSER_FLAGS} --no-interaction --prefer-source
+  - travis_retry composer require phpunit/phpunit:${PHPUNIT_VERSION}
+
+script:
+  - vendor/bin/phpunit
+
+after_script:
+  - bash -c '[[ -f "build/logs/clover.xml" ]] && wget https://scrutinizer-ci.com/ocular.phar'
+  - bash -c '[[ -f "build/logs/clover.xml" ]] && php ocular.phar code-coverage:upload --format=php-clover build/logs/clover.xml'
