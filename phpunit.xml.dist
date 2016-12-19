@@ -1,7 +1,7 @@
-<phpunit backupGlobals="false" bootstrap="./vendor/autoload.php" colors="true">
+<phpunit backupGlobals="true" bootstrap="vendor/autoload.php" colors="true">
     <testsuites>
         <testsuite name="Integration tests">
-            <directory>vendor/http-interop/http-factory-tests/src</directory>
+            <directory>vendor/http-interop/http-factory-tests/test</directory>
         </testsuite>
     </testsuites>
     <php>
