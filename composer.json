@@ -18,11 +18,11 @@
         "psr/http-factory-implementation": "^1.0"
     },
     "require": {
-        "http-interop/http-factory": "^0.2",
+        "http-interop/http-factory": "^0.3",
         "guzzlehttp/psr7": "^1.4.2"
     },
     "require-dev": {
-        "http-interop/http-factory-tests": "^0.2"
+        "http-interop/http-factory-tests": "^0.3"
     },
     "autoload": {
         "psr-4": {
