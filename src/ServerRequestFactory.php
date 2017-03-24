@@ -22,11 +22,6 @@ class ServerRequestFactory implements ServerRequestFactoryInterface
             $SERVER = $_SERVER;
             $_SERVER = $server;
 
-            // Until https://github.com/guzzle/psr7/pull/116 is resolved
-            if (!isset($_SERVER['HTTPS'])) {
-                $_SERVER['HTTPS'] = 'off';
-            }
-
             $uri = ServerRequest::getUriFromGlobals();
 
             $_SERVER = $SERVER;

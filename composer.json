@@ -19,7 +19,7 @@
     },
     "require": {
         "http-interop/http-factory": "^0.2",
-        "guzzlehttp/psr7": "^1.3.1"
+        "guzzlehttp/psr7": "^1.4.2"
     },
     "require-dev": {
         "http-interop/http-factory-tests": "^0.2"
