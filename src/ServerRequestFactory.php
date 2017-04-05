@@ -7,9 +7,14 @@ use Interop\Http\Factory\ServerRequestFactoryInterface;
 
 class ServerRequestFactory implements ServerRequestFactoryInterface
 {
-    public function createServerRequest(array $server, $method = null, $uri = null)
+    public function createServerRequest($method, $uri)
     {
-        if (null === $method && isset($server['REQUEST_METHOD'])) {
+        return new ServerRequest($method, $uri);
+    }
+
+    public function createServerRequestFromArray(array $server)
+    {
+        if (isset($server['REQUEST_METHOD'])) {
             $method = $server['REQUEST_METHOD'];
         }
 
@@ -18,15 +23,13 @@ class ServerRequestFactory implements ServerRequestFactoryInterface
         }
 
         // TODO: find a MUCH better way
-        if (null === $uri) {
-            $SERVER = $_SERVER;
-            $_SERVER = $server;
+        $backup = $_SERVER;
+        $_SERVER = $server;
 
-            $uri = ServerRequest::getUriFromGlobals();
+        $uri = ServerRequest::getUriFromGlobals();
 
-            $_SERVER = $SERVER;
-            unset($SERVER);
-        }
+        $_SERVER = $backup;
+        unset($backup);
 
         return new ServerRequest($method, $uri, [], null, '1.1', $server);
     }
