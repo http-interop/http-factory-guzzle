@@ -18,7 +18,7 @@ class ServerRequestFactory implements ServerRequestFactoryInterface
             $method = $server['REQUEST_METHOD'];
         }
 
-        if (null === $method) {
+        if (empty($method)) {
             throw new \InvalidArgumentException('Cannot determine HTTP method');
         }
 
