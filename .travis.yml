@@ -26,8 +26,8 @@ matrix:
         - COMPOSER_FLAGS="--prefer-stable --prefer-lowest"
 
 before_script:
+  - travis_retry composer require phpunit/phpunit:${PHPUNIT_VERSION} --no-update
   - travis_retry composer update ${COMPOSER_FLAGS} --no-interaction --prefer-source
-  - travis_retry composer require phpunit/phpunit:${PHPUNIT_VERSION}
 
 script:
   - vendor/bin/phpunit
