@@ -20,8 +20,6 @@ class ServerRequestFactory implements ServerRequestFactoryInterface
             }
         }
 
-        $uri = ServerRequest::getUriFromGlobals();
-
         return new ServerRequest($method, $uri, [], null, '1.1', $serverParams);
     }
 }
