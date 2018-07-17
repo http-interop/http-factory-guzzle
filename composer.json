@@ -22,7 +22,8 @@
         "guzzlehttp/psr7": "^1.4.2"
     },
     "require-dev": {
-        "http-interop/http-factory-tests": "dev-master"
+        "http-interop/http-factory-tests": "dev-patch-1",
+        "phpunit/phpunit": "^6.5"
     },
     "autoload": {
         "psr-4": {
