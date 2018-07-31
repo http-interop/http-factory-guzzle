@@ -3,7 +3,7 @@
 namespace Http\Factory\Guzzle;
 
 use GuzzleHttp\Psr7\UploadedFile;
-use Interop\Http\Factory\UploadedFileFactoryInterface;
+use Psr\Http\Message\UploadedFileFactoryInterface;
 use Psr\Http\Message\StreamInterface;
 use Psr\Http\Message\UploadedFileInterface;
 

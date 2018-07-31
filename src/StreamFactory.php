@@ -2,7 +2,7 @@
 
 namespace Http\Factory\Guzzle;
 
-use Interop\Http\Factory\StreamFactoryInterface;
+use Psr\Http\Message\StreamFactoryInterface;
 use Psr\Http\Message\StreamInterface;
 
 class StreamFactory implements StreamFactoryInterface
