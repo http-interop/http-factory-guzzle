@@ -3,7 +3,7 @@
 namespace Http\Factory\Guzzle;
 
 use GuzzleHttp\Psr7\Uri;
-use Interop\Http\Factory\UriFactoryInterface;
+use Psr\Http\Message\UriFactoryInterface;
 use Psr\Http\Message\UriInterface;
 
 class UriFactory implements UriFactoryInterface

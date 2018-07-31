@@ -3,9 +3,8 @@
 namespace Http\Factory\Guzzle;
 
 use GuzzleHttp\Psr7\ServerRequest;
-use Interop\Http\Factory\ServerRequestFactoryInterface;
+use Psr\Http\Message\ServerRequestFactoryInterface;
 use Psr\Http\Message\ServerRequestInterface;
-use Psr\Http\Message\UriInterface;
 
 class ServerRequestFactory implements ServerRequestFactoryInterface
 {
