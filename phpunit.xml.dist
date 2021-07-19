@@ -1,4 +1,23 @@
-<phpunit backupGlobals="true" bootstrap="vendor/autoload.php" colors="true">
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd"
+        backupGlobals="true"
+        bootstrap="vendor/autoload.php"
+        colors="true">
+    <coverage>
+        <include>
+            <directory suffix=".php">src/</directory>
+        </include>
+        <report>
+            <clover outputFile="build/logs/clover.xml"/>
+            <html outputDirectory="build/coverage"/>
+            <text outputFile="php://stdout"/>
+        </report>
+    </coverage>
+    <logging>
+        <junit outputFile="build/phpunit/junit.xml"/>
+    </logging>
     <testsuites>
         <testsuite name="Integration tests">
             <directory>vendor/http-interop/http-factory-tests/test</directory>
@@ -12,14 +31,4 @@
         <const name="UPLOADED_FILE_FACTORY" value="Http\Factory\Guzzle\UploadedFileFactory"/>
         <const name="URI_FACTORY" value="Http\Factory\Guzzle\UriFactory"/>
     </php>
-    <filter>
-        <whitelist>
-            <directory>./src/</directory>
-        </whitelist>
-    </filter>
-    <logging>
-        <log type="coverage-text" target="php://stdout"/>
-        <log type="coverage-html" target="build/coverage" charset="UTF-8" yui="true" highlight="true"/>
-        <log type="coverage-clover" target="build/logs/clover.xml"/>
-    </logging>
 </phpunit>
