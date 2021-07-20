@@ -29,5 +29,8 @@
         "psr-4": {
             "Http\\Factory\\Guzzle\\": "src/"
         }
+    },
+    "suggest": {
+        "guzzlehttp/psr7": "Includes an HTTP factory starting in version 2.0"
     }
 }
