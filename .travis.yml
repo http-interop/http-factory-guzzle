@@ -1,7 +1,6 @@
 language: php
 
 php:
-  - 7.2
   - 7.3
   - 7.4
   - 8.0
@@ -18,7 +17,7 @@ git:
 
 matrix:
   include:
-    - php: 7.2
+    - php: 7.3
       env:
         - COMPOSER_FLAGS="--prefer-stable --prefer-lowest"
 
