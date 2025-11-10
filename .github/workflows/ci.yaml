@@ -7,7 +7,7 @@ on:
 
 jobs:
     run:
-        runs-on: ubuntu-18.04
+        runs-on: ubuntu-latest
         strategy:
             fail-fast: false
             matrix:
@@ -15,6 +15,11 @@ jobs:
                     - '7.3'
                     - '7.4'
                     - '8.0'
+                    - '8.1'
+                    - '8.2'
+                    - '8.3'
+                    - '8.4'
+                    - '8.5'
                 minimum_versions: [false]
                 coverage: ['none']
                 include:
@@ -28,9 +33,9 @@ jobs:
         name: PHP ${{ matrix.php }} ${{ matrix.description }}
         steps:
             - name: Checkout
-              uses: actions/checkout@v2
+              uses: actions/checkout@v5
 
-            - uses: actions/cache@v2
+            - uses: actions/cache@v4
               with:
                   path: ~/.composer/cache/files
                   key: ${{ matrix.php }}
