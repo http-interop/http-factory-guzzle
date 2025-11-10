@@ -27,7 +27,7 @@ jobs:
                       php: '7.3'
                       minimum_versions: true
                     - description: 'Log Code Coverage'
-                      php: '8.0'
+                      php: '8.4'
                       coverage: 'xdebug'
 
         name: PHP ${{ matrix.php }} ${{ matrix.description }}
@@ -58,8 +58,9 @@ jobs:
               run: vendor/bin/phpunit
 
             - name: Upload code coverage
-              uses: codecov/codecov-action@v2
+              uses: codecov/codecov-action@v4
               if: matrix.coverage == 'xdebug'
               with:
+                  token: ${{ secrets.CODECOV_TOKEN }}
                   file: './build/logs/clover.xml'
                   fail_ci_if_error: true
